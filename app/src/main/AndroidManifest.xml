@@ -11,7 +11,7 @@
         android:theme="@style/Theme.PlainOlNotes4">
         <activity android:name=".MainActivity"
             android:label="@string/notes"
-            >
+            android:exported="true">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
