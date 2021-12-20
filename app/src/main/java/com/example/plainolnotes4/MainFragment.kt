@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.plainolnotes4.databinding.MainFragmentBinding
 
 class MainFragment : Fragment() {
@@ -20,7 +22,18 @@ class MainFragment : Fragment() {
     ): View? {
         binding = MainFragmentBinding.inflate(inflater,container,false)
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+
+        with(binding.recyclerView){
+            setHasFixedSize(true)
+            val divider =DividerItemDecoration(
+                context,LinearLayoutManager(context).orientation
+            )
+            addItemDecoration(divider)
+        }
+
+
         return binding.root
+
     }
 
 }
