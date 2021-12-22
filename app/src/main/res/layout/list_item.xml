@@ -16,5 +16,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_add"
-       />
+        android:focusable="true"
+        android:contentDescription="@string/add" />
+
+    <TextView
+        android:id="@+id/tv_list_item"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/floatingActionButton"
+        tools:text="Visible during design only"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
