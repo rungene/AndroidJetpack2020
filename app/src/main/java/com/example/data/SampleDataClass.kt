@@ -1,5 +1,7 @@
 package com.example.data
 
+import java.util.*
+
 class SampleDataClass {
 
     companion object{
@@ -11,5 +13,9 @@ class SampleDataClass {
 
             Duis volutpat non dui vitae scelerisque. Nulla et quam cursus, viverra purus ac, vulputate eros. Sed quis accumsan urna. Sed quam magna, eleifend ac gravida at, fermentum a tortor. Duis sagittis, urna sed commodo consectetur, sapien sem tristique orci, non ultrices tellus erat eu risus. Nulla fermentum metus a malesuada fringilla. Donec eget metus tellus. Curabitur ac euismod urna, non euismod tortor. 
         """.trimIndent()
+
+        private fun getDate(diff:Long):Date{
+            return Date(Date().time+diff)
+        }
     }
 }
