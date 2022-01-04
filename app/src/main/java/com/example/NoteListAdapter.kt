@@ -28,8 +28,12 @@ val binding =ListItemBinding.bind(itemView)
     return ViewHolder(view)
     }
 
+    //This function is called each time data is passed to one of the recycled views, rows or tiles.
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val note = noteList[position]
+        with(holder.binding){
+            textNote.text=note.text
+        }
     }
 
     //called by recyclerview to find out how many data items are there in a list
