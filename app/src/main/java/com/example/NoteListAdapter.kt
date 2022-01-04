@@ -26,9 +26,8 @@ val binding =ListItemBinding.bind(itemView)
         TODO("Not yet implemented")
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
+    //called by recyclerview to find out how many data items are there in a list
+    override fun getItemCount()=noteList.size
 
 
 }
