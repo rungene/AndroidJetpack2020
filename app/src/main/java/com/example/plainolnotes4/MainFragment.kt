@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.NoteListAdapter
 import com.example.plainolnotes4.databinding.MainFragmentBinding
 
 class MainFragment : Fragment() {
@@ -17,6 +18,7 @@ class MainFragment : Fragment() {
 
     private lateinit var viewModel: MainViewModel
     private lateinit var binding: MainFragmentBinding
+    private lateinit var adapter:NoteListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
