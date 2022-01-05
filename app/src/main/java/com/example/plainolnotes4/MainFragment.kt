@@ -37,6 +37,7 @@ class MainFragment : Fragment() {
 
         viewModel.noteList.observe(viewLifecycleOwner, Observer {
             Log.i("note_logging", it.toString())
+            adapter =NoteListAdapter(it)
         })
         return binding.root
 
