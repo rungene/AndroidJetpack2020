@@ -10,7 +10,9 @@ import com.example.data.NoteEntity
 import com.example.plainolnotes4.R
 import com.example.plainolnotes4.databinding.ListItemBinding
 
-class NoteListAdapter (private val noteList: List<NoteEntity>) :
+class NoteListAdapter (private val noteList: List<NoteEntity>,
+private val listener:ListItemListener
+                       ) :
 RecyclerView.Adapter<NoteListAdapter.ViewHolder>()
 {
 
