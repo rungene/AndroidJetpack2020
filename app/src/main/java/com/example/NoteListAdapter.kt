@@ -35,6 +35,9 @@ val binding =ListItemBinding.bind(itemView)
         val note = noteList[position]
         with(holder.binding){
             textNote.text=note.text
+            root.setOnClickListener{
+                listener.onItemClick(note.id)
+            }
         }
     }
 
