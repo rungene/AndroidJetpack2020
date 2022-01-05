@@ -39,5 +39,10 @@ val binding =ListItemBinding.bind(itemView)
     //called by recyclerview to find out how many data items are there in a list
     override fun getItemCount()=noteList.size
 
+    interface ListItemListener{
+
+        fun onItemClick(noteId:Int)
+    }
+
 
 }
