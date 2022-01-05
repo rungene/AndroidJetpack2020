@@ -37,7 +37,9 @@ class MainFragment : Fragment() {
 
         viewModel.noteList.observe(viewLifecycleOwner, Observer {
             Log.i("note_logging", it.toString())
-            adapter =NoteListAdapter(it)
+            adapter = NoteListAdapter(it)
+            binding.recyclerView.adapter=adapter
+            binding.recyclerView.layoutManager=LinearLayoutManager(activity)
         })
         return binding.root
 
