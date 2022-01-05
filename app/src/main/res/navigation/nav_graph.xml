@@ -10,4 +10,9 @@
         android:name="com.example.plainolnotes4.MainFragment"
         android:label="main_fragment"
         tools:layout="@layout/main_fragment" />
+    <fragment
+        android:id="@+id/editFragment"
+        android:name="com.example.plainolnotes4.EditFragment"
+        android:label="edit_fragment"
+        tools:layout="@layout/edit_fragment" />
 </navigation>
