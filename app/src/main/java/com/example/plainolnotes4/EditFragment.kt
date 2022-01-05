@@ -9,10 +9,6 @@ import android.view.ViewGroup
 
 class EditFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = EditFragment()
-    }
-
     private lateinit var viewModel: EditViewModel
 
     override fun onCreateView(
@@ -25,7 +21,7 @@ class EditFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(EditViewModel::class.java)
-        // TODO: Use the ViewModel
+
     }
 
 }
