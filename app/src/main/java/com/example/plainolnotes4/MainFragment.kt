@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.NoteListAdapter
 import com.example.plainolnotes4.databinding.MainFragmentBinding
 
-class MainFragment : Fragment() {
+class MainFragment : Fragment(), NoteListAdapter.ListItemListener{
 
 
     private lateinit var viewModel: MainViewModel
@@ -43,6 +43,10 @@ class MainFragment : Fragment() {
         })
         return binding.root
 
+    }
+
+    override fun onItemClick(noteId: Int) {
+        TODO("Not yet implemented")
     }
 
 }
