@@ -46,7 +46,7 @@ class MainFragment : Fragment(), NoteListAdapter.ListItemListener{
     }
 
     override fun onItemClick(noteId: Int) {
-        TODO("Not yet implemented")
+      Log.i(TAG,"onItemClick")
     }
 
 }
