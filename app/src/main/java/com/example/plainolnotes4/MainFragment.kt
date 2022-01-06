@@ -46,7 +46,7 @@ class MainFragment : Fragment(), NoteListAdapter.ListItemListener{
     }
 
     override fun onItemClick(noteId: Int) {
-      Log.i(TAG,"onItemClick")
+      Log.i(TAG,"onItemClick, received note id $noteId")
     }
 
 }
