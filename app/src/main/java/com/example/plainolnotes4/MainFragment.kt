@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.NoteListAdapter
@@ -47,6 +48,8 @@ class MainFragment : Fragment(), NoteListAdapter.ListItemListener{
 
     override fun onItemClick(noteId: Int) {
       Log.i(TAG,"onItemClick, received note id $noteId")
+        val action =MainFragmentDirections.actionMainFragmentToEditFragment(noteId)
+        findNavController().navigate(action)
     }
 
 }
