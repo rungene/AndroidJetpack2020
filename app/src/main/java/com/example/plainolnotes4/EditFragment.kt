@@ -19,7 +19,10 @@ class EditFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.edit_fragment, container, false)
+        binding= EditFragmentBinding.inflate(inflater,container,false)
+        binding.editText.setText("you selected note number ${args.noteId}")
+
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
