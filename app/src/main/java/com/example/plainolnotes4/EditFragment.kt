@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -35,6 +36,15 @@ class EditFragment : Fragment() {
 
         binding= EditFragmentBinding.inflate(inflater,container,false)
         binding.editText.setText("you selected note number ${args.noteId}")
+
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner,
+            object : OnBackPressedCallback(true){
+                override fun handleOnBackPressed() {
+                    returnAndSave()
+                }
+            }
+        )
 
         return binding.root
     }
