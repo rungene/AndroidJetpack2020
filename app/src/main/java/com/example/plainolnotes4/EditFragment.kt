@@ -28,7 +28,7 @@ class EditFragment : Fragment() {
             it.setHomeButtonEnabled(true)
             it.setDisplayHomeAsUpEnabled(true)
             it.setDisplayHomeAsUpEnabled(true)
-            it.setHomeAsUpIndicator(R.drawable.ic_check)
+            it.setHomeAsUpIndicator(R.drawable.ic_arrow_back)
         }
         setHasOptionsMenu(true)
 
