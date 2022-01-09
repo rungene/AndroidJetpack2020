@@ -12,5 +12,9 @@ abstract class Database :RoomDatabase() {
     //register DAO
     abstract fun noteDao() :NoteDAO?
 
+    //initialize DB
+    companion object{
+        
+    }
 
 }
