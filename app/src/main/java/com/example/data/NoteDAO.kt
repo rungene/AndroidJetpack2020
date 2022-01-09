@@ -11,6 +11,9 @@ interface NoteDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertNote(noteEntity: NoteEntity)
 
+    //inserting a bunch of notes, if they already exist in db throw away the new ones
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    fun insertAll(notes: List<NoteEntity>)
 
 
 }
