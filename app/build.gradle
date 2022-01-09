@@ -2,7 +2,8 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id("androidx.navigation.safeargs.kotlin")
-
+    id 'kotlin-kapt'
+   
 }
 
 android {
@@ -56,6 +57,16 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
     //recyclerview
     implementation("androidx.recyclerview:recyclerview:1.2.1")
+
+    implementation("androidx.room:room-runtime:$roomVersion")
+    annotationProcessor("androidx.room:room-compiler:$roomVersion")
+
+    // To use Kotlin annotation processing tool (kapt)
+    kapt("androidx.room:room-compiler:$roomVersion")
+
+
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation("androidx.room:room-ktx:$roomVersion")
 
 
 
