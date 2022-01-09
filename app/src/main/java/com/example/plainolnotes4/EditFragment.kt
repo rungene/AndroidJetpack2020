@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
@@ -28,12 +29,27 @@ class EditFragment : Fragment() {
             it.setDisplayHomeAsUpEnabled(true)
             it.setHomeAsUpIndicator(R.drawable.ic_check)
         }
+        setHasOptionsMenu(true)
 
 
         binding= EditFragmentBinding.inflate(inflater,container,false)
         binding.editText.setText("you selected note number ${args.noteId}")
 
         return binding.root
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        return when(item.itemId){
+            android.R.id.home -> returnAndSave()
+
+            else -> super.onOptionsItemSelected(item)
+        }
+
+    }
+
+    private fun returnAndSave(): Boolean {
+TODO()
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
