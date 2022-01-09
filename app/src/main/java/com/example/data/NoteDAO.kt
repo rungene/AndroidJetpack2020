@@ -22,5 +22,8 @@ interface NoteDAO {
     @Query("SELECT * FROM notes ORDER BY date ASC")
     fun getAll() : LiveData<List<NoteEntity>>
 
-
+    //returns a single note object
+    //returns a NoteEntity object, it is nullable
+    @Query("SELECT * FROM notes WHERE id = :id")
+    fun getNoteById(id:Int) : NoteEntity?
 }
