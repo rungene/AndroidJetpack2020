@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.plainolnotes4.databinding.EditFragmentBinding
 
@@ -49,7 +50,9 @@ class EditFragment : Fragment() {
     }
 
     private fun returnAndSave(): Boolean {
-TODO()
+        findNavController().navigateUp()
+
+      return  true
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
