@@ -9,4 +9,8 @@ import java.util.*
 @TypeConverters(Converters::class)
 abstract class Database :RoomDatabase() {
 
+    //register DAO
+    abstract fun noteDao() :NoteDAO?
+
+
 }
