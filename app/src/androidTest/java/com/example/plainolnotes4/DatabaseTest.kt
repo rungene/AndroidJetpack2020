@@ -38,7 +38,7 @@ class DatabaseTest {
 
 
     @Test
-    fun useAppContext() {
+    fun createNotes() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         Assert.assertEquals("com.example.plainolnotes4", appContext.packageName)
