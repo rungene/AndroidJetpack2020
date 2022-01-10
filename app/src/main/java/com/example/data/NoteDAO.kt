@@ -26,4 +26,8 @@ interface NoteDAO {
     //returns a NoteEntity object, it is nullable
     @Query("SELECT * FROM notes WHERE id = :id")
     fun getNoteById(id:Int) : NoteEntity?
+
+    //reports how many rows are there in the db- easily query the db table
+    @Query("SELECT COUNT(*) from notes")
+    fun getCount() :Int
 }
