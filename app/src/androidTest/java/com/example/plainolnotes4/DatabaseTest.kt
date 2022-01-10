@@ -29,6 +29,9 @@ class DatabaseTest {
             .allowMainThreadQueries()
             .build()
 
+            //initialize DAO object
+        dao = databaseApp.noteDao()!!
+
     }
 
 
