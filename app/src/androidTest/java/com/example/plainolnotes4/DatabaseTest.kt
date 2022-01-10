@@ -5,6 +5,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.example.data.DatabaseApp
 import com.example.data.NoteDAO
+import com.example.data.SampleDataClass
 import org.junit.After
 import org.junit.Assert
 import org.junit.Before
@@ -39,9 +40,10 @@ class DatabaseTest {
 
     @Test
     fun createNotes() {
-        // Context of the app under test.
-        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        Assert.assertEquals("com.example.plainolnotes4", appContext.packageName)
+
+        dao.insertAll(SampleDataClass.getNotes())
+        val count = dao.getCount()
+        Assert.assertEquals(count,SampleDataClass.getNotes().size)
     }
 
     @After
