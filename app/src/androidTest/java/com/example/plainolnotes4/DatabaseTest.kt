@@ -5,6 +5,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.example.data.DatabaseApp
 import com.example.data.NoteDAO
+import org.junit.After
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
@@ -41,5 +42,10 @@ class DatabaseTest {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         Assert.assertEquals("com.example.plainolnotes4", appContext.packageName)
+    }
+
+    @After
+    fun closeDB(){
+        databaseApp.close()
     }
 }
