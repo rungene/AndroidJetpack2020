@@ -5,6 +5,7 @@ import androidx.test.platform.app.InstrumentationRegistry
 import com.example.data.DatabaseApp
 import com.example.data.NoteDAO
 import org.junit.Assert
+import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 
@@ -14,6 +15,14 @@ class DatabaseTest {
 
     private lateinit var dao: NoteDAO
     private lateinit var databaseApp: DatabaseApp
+
+
+    @Before
+    fun createDb(){
+
+    }
+
+
 
     @Test
     fun useAppContext() {
