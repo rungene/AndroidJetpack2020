@@ -1,5 +1,6 @@
 package com.example.plainolnotes4
 
+import androidx.room.Room
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.example.data.DatabaseApp
@@ -19,6 +20,14 @@ class DatabaseTest {
 
     @Before
     fun createDb(){
+        // Context of the app under test.
+        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
+        //initialize db
+        //inMemoryDatabaseBuilder ensures your not storing the db in the persistence storage during
+       // test
+        databaseApp = Room.inMemoryDatabaseBuilder(appContext,DatabaseApp::class.java)
+            .allowMainThreadQueries()
+            .build()
 
     }
 
