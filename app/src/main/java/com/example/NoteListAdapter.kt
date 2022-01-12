@@ -66,8 +66,8 @@ val binding =ListItemBinding.bind(itemView)
     override fun getItemCount()=noteList.size
 
     interface ListItemListener{
-
         fun onItemClick(noteId:Int)
+        fun onItemSelectedChanged()
     }
 
 
