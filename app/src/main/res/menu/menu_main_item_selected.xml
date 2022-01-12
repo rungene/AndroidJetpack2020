@@ -4,6 +4,9 @@
 
 
     <item
-        android:id="@+id/menu_sample_data"
-        android:title="@string/add_sample_data" />
+        android:id="@+id/delete_action"
+        android:title="@string/delete"
+        android:icon="@drawable/ic_delete"
+        app:showAsAction="ifRoom"
+        />
 </menu>
