@@ -53,6 +53,20 @@ class MainFragment : Fragment(), NoteListAdapter.ListItemListener{
         super.onCreateOptionsMenu(menu, inflater)
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        return when (item.itemId){
+            
+            R.id.menu_sample_data -> addSampleData()
+            else -> super.onOptionsItemSelected(item)
+        }
+
+    }
+
+    private fun addSampleData(): Boolean {
+TODO()
+    }
+
     override fun onItemClick(noteId: Int) {
       Log.i(TAG,"onItemClick, received note id $noteId")
         val action =MainFragmentDirections.actionMainFragmentToEditFragment(noteId)
