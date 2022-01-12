@@ -39,7 +39,17 @@ val binding =ListItemBinding.bind(itemView)
             root.setOnClickListener{
                 listener.onItemClick(note.id)
             }
+            floatingActionButton.setOnClickListener {
+                if (notesSelected.contains(note)){
+                    notesSelected.remove(note)
+                    floatingActionButton.setImageResource(R.drawable.ic_note)
+                }else{
+                    notesSelected.add(note)
+                    floatingActionButton.setImageResource(R.drawable.ic_check)
+                }
+            }
         }
+
     }
 
     //called by recyclerview to find out how many data items are there in a list
