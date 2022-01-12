@@ -39,7 +39,7 @@ class MainFragment : Fragment(), NoteListAdapter.ListItemListener{
             addItemDecoration(divider)
         }
 
-        viewModel.noteList.observe(viewLifecycleOwner, Observer {
+        viewModel.noteList?.observe(viewLifecycleOwner, Observer {
             Log.i("note_logging", it.toString())
             adapter = NoteListAdapter(it,this@MainFragment)
             binding.recyclerView.adapter=adapter
