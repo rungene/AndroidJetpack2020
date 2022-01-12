@@ -15,6 +15,7 @@ private val listener:ListItemListener
                        ) :
 RecyclerView.Adapter<NoteListAdapter.ViewHolder>()
 {
+    val notesSelected = arrayListOf<NoteEntity>()
 
     inner class ViewHolder(itemView: View) :
     RecyclerView.ViewHolder(itemView)
