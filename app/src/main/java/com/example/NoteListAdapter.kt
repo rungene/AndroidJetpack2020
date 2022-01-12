@@ -47,6 +47,7 @@ val binding =ListItemBinding.bind(itemView)
                     notesSelected.add(note)
                     floatingActionButton.setImageResource(R.drawable.ic_check)
                 }
+                listener.onItemSelectedChanged()
             }
                 //setting the icon in the run time either when the fragment first pop up, or as the
             //list scrolls
