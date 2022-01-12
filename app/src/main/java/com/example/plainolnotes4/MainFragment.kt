@@ -50,7 +50,16 @@ class MainFragment : Fragment(), NoteListAdapter.ListItemListener{
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu_main,menu)
+        val menuId =
+            if (this::adapter.isInitialized &&
+                    adapter.notesSelected.isNotEmpty()){
+                R.menu.menu_main_item_selected
+            }else{
+                R.menu.menu_main
+            }
+
+
+        inflater.inflate(menuId,menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
 
