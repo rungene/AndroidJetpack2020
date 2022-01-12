@@ -26,6 +26,7 @@ class MainFragment : Fragment(), NoteListAdapter.ListItemListener{
     ): View? {
 
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        setHasOptionsMenu(true)
 
         binding = MainFragmentBinding.inflate(inflater,container,false)
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
