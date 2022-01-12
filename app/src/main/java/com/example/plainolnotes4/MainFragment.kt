@@ -65,7 +65,10 @@ class MainFragment : Fragment(), NoteListAdapter.ListItemListener{
     }
 
     private fun addSampleData(): Boolean {
-TODO()
+
+        viewModel.addSampleData()
+
+        return true
     }
 
     override fun onItemClick(noteId: Int) {
