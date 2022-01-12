@@ -12,10 +12,8 @@ class MainViewModel(app:Application) : AndroidViewModel(app) {
 
     private val database =DatabaseApp.getInstance(app)
 
-    val noteList = MutableLiveData<List<NoteEntity>>()
+    val noteList = database?.noteDao()?.getAll()
 
-    init {
-        noteList.value=SampleDataClass.getNotes()
-    }
+
 
 }
