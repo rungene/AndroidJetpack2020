@@ -77,4 +77,8 @@ class MainFragment : Fragment(), NoteListAdapter.ListItemListener{
         findNavController().navigate(action)
     }
 
+    override fun onItemSelectedChanged() {
+        requireActivity().invalidateOptionsMenu()
+    }
+
 }
