@@ -30,4 +30,8 @@ interface NoteDAO {
     //reports how many rows are there in the db- easily query the db table
     @Query("SELECT COUNT(*) from notes")
     fun getCount() :Int
+
+    fun deleteNotes(notesSelected: List<NoteEntity>) {
+
+    }
 }
