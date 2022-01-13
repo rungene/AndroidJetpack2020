@@ -74,6 +74,7 @@ class MainFragment : Fragment(), NoteListAdapter.ListItemListener{
     }
 
     private fun deleteSelectedNotes(): Boolean {
+        viewModel.deleteNotes(adapter.notesSelected)
     return true
     }
 
