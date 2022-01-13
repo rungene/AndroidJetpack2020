@@ -2,6 +2,8 @@ package com.example.plainolnotes4
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
@@ -75,8 +77,16 @@ class MainFragment : Fragment(), NoteListAdapter.ListItemListener{
 
     private fun deleteSelectedNotes(): Boolean {
         viewModel.deleteNotes(adapter.notesSelected)
+
+        Handler(Looper.getMainLooper()).postDelayed(
+            {
+                adapter.notesSelected.clear()
+                requireActivity().invalidateOptionsMenu()
+            },100)
+
     return true
     }
+
 
     private fun addSampleData(): Boolean {
 
