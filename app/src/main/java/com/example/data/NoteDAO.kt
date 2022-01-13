@@ -1,10 +1,7 @@
 package com.example.data
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface NoteDAO {
@@ -31,7 +28,6 @@ interface NoteDAO {
     @Query("SELECT COUNT(*) from notes")
     fun getCount() :Int
 
-    fun deleteNotes(notesSelected: List<NoteEntity>) {
-
-    }
+    @Delete
+    fun deleteNotes(notesSelected: List<NoteEntity>):Int
 }
