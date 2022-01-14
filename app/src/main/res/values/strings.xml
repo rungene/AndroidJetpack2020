@@ -5,4 +5,5 @@
     <string name="enter_note">Enter Note</string>
     <string name="add_sample_data">Add Sample Data</string>
     <string name="delete">Delete</string>
+    <string name="delete_all">Delete All</string>
 </resources>
