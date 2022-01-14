@@ -78,6 +78,9 @@ class EditFragment : Fragment() {
 
         imm.hideSoftInputFromWindow(binding.root.windowToken,0)
 
+        //get value that the user has typed in,assign that to the currentNote object that is in VM
+        viewModel.currentNote.value?.text =binding.editText.text.toString()
+
 
         findNavController().navigateUp()
 
