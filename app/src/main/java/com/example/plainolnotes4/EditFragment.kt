@@ -36,7 +36,7 @@ class EditFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(EditViewModel::class.java)
 
         binding= EditFragmentBinding.inflate(inflater,container,false)
-        binding.editText.setText("you selected note number ${args.noteId}")
+        binding.editText.setText("")
 
         requireActivity().onBackPressedDispatcher.addCallback(
             viewLifecycleOwner,
