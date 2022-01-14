@@ -33,6 +33,7 @@ class EditFragment : Fragment() {
         }
         setHasOptionsMenu(true)
 
+        viewModel = ViewModelProvider(this).get(EditViewModel::class.java)
 
         binding= EditFragmentBinding.inflate(inflater,container,false)
         binding.editText.setText("you selected note number ${args.noteId}")
@@ -65,10 +66,5 @@ class EditFragment : Fragment() {
       return  true
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(EditViewModel::class.java)
-
-    }
 
 }
