@@ -70,9 +70,15 @@ class MainFragment : Fragment(), NoteListAdapter.ListItemListener{
         return when (item.itemId){
             R.id.menu_sample_data -> addSampleData()
             R.id.delete_action -> deleteSelectedNotes()
+            R.id.delete_sample_data -> deleteAllNotes()
             else -> super.onOptionsItemSelected(item)
         }
 
+    }
+
+    private fun deleteAllNotes(): Boolean {
+
+        return true
     }
 
     private fun deleteSelectedNotes(): Boolean {
