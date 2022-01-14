@@ -15,12 +15,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.NoteListAdapter
 import com.example.plainolnotes4.databinding.MainFragmentBinding
 
-class MainFragment : Fragment(), NoteListAdapter.ListItemListener{
+class MainFragment : Fragment(), NoteListAdapter.ListItemListener {
 
 
     private lateinit var viewModel: MainViewModel
     private lateinit var binding: MainFragmentBinding
-    private lateinit var adapter:NoteListAdapter
+    private lateinit var adapter: NoteListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,22 +30,22 @@ class MainFragment : Fragment(), NoteListAdapter.ListItemListener{
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
         setHasOptionsMenu(true)
 
-        binding = MainFragmentBinding.inflate(inflater,container,false)
+        binding = MainFragmentBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
-        with(binding.recyclerView){
+        with(binding.recyclerView) {
             setHasFixedSize(true)
-            val divider =DividerItemDecoration(
-                context,LinearLayoutManager(context).orientation
+            val divider = DividerItemDecoration(
+                context, LinearLayoutManager(context).orientation
             )
             addItemDecoration(divider)
         }
 
         viewModel.noteList?.observe(viewLifecycleOwner, Observer {
             Log.i("note_logging", it.toString())
-            adapter = NoteListAdapter(it,this@MainFragment)
-            binding.recyclerView.adapter=adapter
-            binding.recyclerView.layoutManager=LinearLayoutManager(activity)
+            adapter = NoteListAdapter(it, this@MainFragment)
+            binding.recyclerView.adapter = adapter
+            binding.recyclerView.layoutManager = LinearLayoutManager(activity)
         })
         return binding.root
 
@@ -54,20 +54,21 @@ class MainFragment : Fragment(), NoteListAdapter.ListItemListener{
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         val menuId =
             if (this::adapter.isInitialized &&
-                    adapter.notesSelected.isNotEmpty()){
+                adapter.notesSelected.isNotEmpty()
+            ) {
                 R.menu.menu_main_item_selected
-            }else{
+            } else {
                 R.menu.menu_main
             }
 
 
-        inflater.inflate(menuId,menu)
+        inflater.inflate(menuId, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
-        return when (item.itemId){
+        return when (item.itemId) {
             R.id.menu_sample_data -> addSampleData()
             R.id.delete_action -> deleteSelectedNotes()
             R.id.delete_sample_data -> deleteAllNotes()
@@ -77,7 +78,7 @@ class MainFragment : Fragment(), NoteListAdapter.ListItemListener{
     }
 
     private fun deleteAllNotes(): Boolean {
-
+        viewModel.deleteAllNotes()
         return true
     }
 
@@ -88,9 +89,10 @@ class MainFragment : Fragment(), NoteListAdapter.ListItemListener{
             {
                 adapter.notesSelected.clear()
                 requireActivity().invalidateOptionsMenu()
-            },100)
+            }, 100
+        )
 
-    return true
+        return true
     }
 
 
@@ -102,8 +104,8 @@ class MainFragment : Fragment(), NoteListAdapter.ListItemListener{
     }
 
     override fun onItemClick(noteId: Int) {
-      Log.i(TAG,"onItemClick, received note id $noteId")
-        val action =MainFragmentDirections.actionMainFragmentToEditFragment(noteId)
+        Log.i(TAG, "onItemClick, received note id $noteId")
+        val action = MainFragmentDirections.actionMainFragmentToEditFragment(noteId)
         findNavController().navigate(action)
     }
 
