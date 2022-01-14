@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.plainolnotes4.databinding.EditFragmentBinding
@@ -46,6 +47,10 @@ class EditFragment : Fragment() {
                 }
             }
         )
+
+        viewModel.currentNote.observe(viewLifecycleOwner, Observer {
+            binding.editText.setText(it.text)
+        })
 
         return binding.root
     }
