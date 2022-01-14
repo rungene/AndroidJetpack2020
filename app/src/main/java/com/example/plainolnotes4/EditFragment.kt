@@ -47,10 +47,13 @@ class EditFragment : Fragment() {
                 }
             }
         )
-
+//display the selected note text value
         viewModel.currentNote.observe(viewLifecycleOwner, Observer {
             binding.editText.setText(it.text)
         })
+        //retrieve the data
+        viewModel.getNoteById(args.noteId)
+
 
         return binding.root
     }
