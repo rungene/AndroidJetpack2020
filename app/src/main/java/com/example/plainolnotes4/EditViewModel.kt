@@ -37,6 +37,23 @@ class EditViewModel(app: Application) : AndroidViewModel(app) {
     }
 
     fun updateNote() {
-        TODO("Not yet implemented")
+      currentNote.value?.let {
+          //trim text value
+          it.text =it.text.trim()
+          //make sure the text is not empty if this is a new note i will return-prevents me from
+          //creating note object that is just blank text
+          if (it.id == NEW_NOTE_ID && it.text.isEmpty()){
+              return
+          }
+          viewModelScope.launch {
+              withContext(Dispatchers.IO){
+                  if (it.text.isEmpty()){
+                      database?.noteDao()?.deleteNote(it)
+                  }else{
+                      database?.noteDao()?.insertNote(it)
+                  }
+              }
+          }
+      }
     }
 }
