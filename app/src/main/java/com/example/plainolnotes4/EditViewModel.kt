@@ -35,4 +35,8 @@ class EditViewModel(app: Application) : AndroidViewModel(app) {
             }
         }
     }
+
+    fun updateNote() {
+        TODO("Not yet implemented")
+    }
 }

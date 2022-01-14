@@ -80,6 +80,7 @@ class EditFragment : Fragment() {
 
         //get value that the user has typed in,assign that to the currentNote object that is in VM
         viewModel.currentNote.value?.text =binding.editText.text.toString()
+        viewModel.updateNote()
 
 
         findNavController().navigateUp()
