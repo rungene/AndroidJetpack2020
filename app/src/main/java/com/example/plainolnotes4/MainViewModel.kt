@@ -38,5 +38,9 @@ class MainViewModel(app:Application) : AndroidViewModel(app) {
         }
 
     }
+    fun deleteAllNotes(notesSelected: List<NoteEntity>) {
+
+
+    }
 
 }
