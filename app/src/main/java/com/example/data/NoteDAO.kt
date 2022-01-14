@@ -32,5 +32,5 @@ interface NoteDAO {
     fun deleteNotes(notesSelected: List<NoteEntity>):Int
 
     @Query("DELETE FROM notes")
-    fun deleteAllNotes()
+    fun deleteAllNotes():Int
 }
