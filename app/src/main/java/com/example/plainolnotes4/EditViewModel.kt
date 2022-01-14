@@ -12,5 +12,7 @@ class EditViewModel (app:Application): AndroidViewModel(app) {
     private val database = DatabaseApp.getInstance(app)
     val currentNote = MutableLiveData<NoteEntity>()
 
-    // TODO: Implement the ViewModel
+   fun getNoteById(noteId:Int) {
+
+   }
 }
