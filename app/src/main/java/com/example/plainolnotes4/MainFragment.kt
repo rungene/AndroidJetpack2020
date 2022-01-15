@@ -49,7 +49,7 @@ class MainFragment : Fragment(), NoteListAdapter.ListItemListener {
         })
 
         binding.fABMain.setOnClickListener {
-            onItemClick(NEW_NOTE_ID)
+            editNote(NEW_NOTE_ID)
         }
 
         return binding.root
@@ -108,7 +108,7 @@ class MainFragment : Fragment(), NoteListAdapter.ListItemListener {
         return true
     }
 
-    override fun onItemClick(noteId: Int) {
+    override fun editNote(noteId: Int) {
         Log.i(TAG, "onItemClick, received note id $noteId")
         val action = MainFragmentDirections.actionMainFragmentToEditFragment(noteId)
         findNavController().navigate(action)

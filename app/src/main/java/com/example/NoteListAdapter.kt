@@ -3,8 +3,6 @@ package com.example
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AbsListView
-import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.data.NoteEntity
 import com.example.plainolnotes4.R
@@ -37,7 +35,7 @@ val binding =ListItemBinding.bind(itemView)
         with(holder.binding){
             textNote.text=note.text
             root.setOnClickListener{
-                listener.onItemClick(note.id)
+                listener.editNote(note.id)
             }
             floatingActionButton.setOnClickListener {
                 if (notesSelected.contains(note)){
@@ -67,7 +65,7 @@ val binding =ListItemBinding.bind(itemView)
     override fun getItemCount()=noteList.size
 
     interface ListItemListener{
-        fun onItemClick(noteId:Int)
+        fun editNote(noteId:Int)
         fun onItemSelectedChanged()
     }
 
