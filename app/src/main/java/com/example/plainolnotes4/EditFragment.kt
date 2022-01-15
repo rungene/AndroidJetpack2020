@@ -62,7 +62,9 @@ class EditFragment : Fragment() {
             val savedString = savedInstanceState?.getString(NOTES_TEXT_KEY)
             val savedCursorPosition =savedInstanceState?.getInt(CURSOR_POSITION_KEY) ?: 0
 
-            binding.editText.setText(it.text)
+            //restore values
+            binding.editText.setText(savedString ?: it.text)
+            binding.editText.setSelection(savedCursorPosition)
         })
         //retrieve the data
         viewModel.getNoteById(args.noteId)
