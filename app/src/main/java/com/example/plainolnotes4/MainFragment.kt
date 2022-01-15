@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.NoteListAdapter
+import com.example.data.NoteEntity
 import com.example.plainolnotes4.databinding.MainFragmentBinding
 
 class MainFragment : Fragment(), NoteListAdapter.ListItemListener {
@@ -46,9 +47,15 @@ class MainFragment : Fragment(), NoteListAdapter.ListItemListener {
 
         viewModel.noteList?.observe(viewLifecycleOwner, Observer {
             Log.i("note_logging", it.toString())
+
             adapter = NoteListAdapter(it, this@MainFragment)
             binding.recyclerView.adapter = adapter
             binding.recyclerView.layoutManager = LinearLayoutManager(activity)
+
+            //restoring data as fragment comes back
+            val selectedNoteRestored =
+                savedInstanceState?.getParcelableArrayList<NoteEntity>(SELECTED_NOTE_KEY)
+            adapter.notesSelected.addAll(selectedNoteRestored ?: emptyList())
         })
 
         binding.fABMain.setOnClickListener {
