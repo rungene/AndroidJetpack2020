@@ -95,5 +95,13 @@ class EditFragment : Fragment() {
       return  true
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        with(binding.editText){
+            outState.putString(NOTES_TEXT_KEY,text.toString())
+            outState.putInt(CURSOR_POSITION_KEY,selectionStart)
+        }
+        super.onSaveInstanceState(outState)
+    }
+
 
 }
