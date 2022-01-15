@@ -123,4 +123,13 @@ class MainFragment : Fragment(), NoteListAdapter.ListItemListener {
         requireActivity().invalidateOptionsMenu()
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        if (this::adapter.isInitialized){
+            //retrieve adapter data,data saved as configuration changes start
+            outState.putParcelableArrayList(SELECTED_NOTE_KEY,
+            adapter.notesSelected)
+        }
+        super.onSaveInstanceState(outState)
+    }
+
 }
