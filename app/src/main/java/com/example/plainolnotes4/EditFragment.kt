@@ -95,9 +95,13 @@ class EditFragment : Fragment() {
       return  true
     }
 
+    //this function is added as configuration changes begin,an opportunity to save stateful info
+
     override fun onSaveInstanceState(outState: Bundle) {
         with(binding.editText){
+            //text object that belongs to the editor object
             outState.putString(NOTES_TEXT_KEY,text.toString())
+            //save the current cursor position
             outState.putInt(CURSOR_POSITION_KEY,selectionStart)
         }
         super.onSaveInstanceState(outState)
