@@ -58,6 +58,10 @@ class EditFragment : Fragment() {
         )
 //display the selected note text value
         viewModel.currentNote.observe(viewLifecycleOwner, Observer {
+            //retrieve values
+            val savedString = savedInstanceState?.getString(NOTES_TEXT_KEY)
+            val savedCursorPosition =savedInstanceState?.getInt(CURSOR_POSITION_KEY) ?: 0
+
             binding.editText.setText(it.text)
         })
         //retrieve the data
