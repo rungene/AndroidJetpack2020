@@ -30,6 +30,9 @@ class MainFragment : Fragment(), NoteListAdapter.ListItemListener {
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
         setHasOptionsMenu(true)
 
+        //reset the title of the activity when i return to main fragment
+        requireActivity().title=getString(R.string.app_name)
+
         binding = MainFragmentBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
@@ -51,6 +54,8 @@ class MainFragment : Fragment(), NoteListAdapter.ListItemListener {
         binding.fABMain.setOnClickListener {
             editNote(NEW_NOTE_ID)
         }
+
+
 
         return binding.root
 
