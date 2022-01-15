@@ -47,6 +47,11 @@ class MainFragment : Fragment(), NoteListAdapter.ListItemListener {
             binding.recyclerView.adapter = adapter
             binding.recyclerView.layoutManager = LinearLayoutManager(activity)
         })
+
+        binding.fABMain.setOnClickListener {
+            onItemClick(NEW_NOTE_ID)
+        }
+
         return binding.root
 
     }
